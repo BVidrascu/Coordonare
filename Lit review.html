@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghid pentru lit review</title>
+    <style>
+        :root {
+            --bg: #0d0f12; /* deep charcoal */
+            --surface: #131416; /* slightly lifted surface */
+            --paper: #151516;
+            --text: #efe8db; /* warm cream (primary readable text) */
+            --muted: #d7cbb8; /* readable muted text */
+            --muted-weak: rgba(231,224,213,0.78);
+            --accent: #c78b59; /* warm brown accent (high-contrast) */
+            --sidebar-width: 260px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: "Libre Baskerville", Georgia, 'Times New Roman', serif;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            min-height: 100vh;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Sidebar */
+        nav {
+            width: var(--sidebar-width);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 2.5rem 1.25rem;
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+            border-right: 1px solid rgba(255,255,255,0.02);
+        }
+
+        nav h1 {
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        nav ul { list-style: none; }
+        nav li { margin-bottom: 0.65rem; }
+
+        nav a {
+            display: block;
+            padding: 0.45rem 0.5rem;
+            border-radius: 8px;
+            color: var(--muted-weak);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.12s ease, transform 0.12s ease, background 0.12s ease;
+            font-family: inherit;
+            outline: none;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text);
+            background: rgba(255,255,255,0.03);
+            transform: translateX(4px);
+        }
+
+        nav a:focus {
+            box-shadow: 0 0 0 3px rgba(199,139,89,0.14);
+            border-radius: 6px;
+        }
+
+        /* Main content */
+        main {
+            margin-left: var(--sidebar-width);
+            padding: 2.75rem 3.25rem;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        /* Sections: increase contrast for readability */
+        section {
+            background: rgba(255,255,255,0.02); /* slightly lighter than page */
+            padding: 1.8rem;
+            margin-bottom: 1.25rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.035);
+            color: var(--text);
+            box-shadow: 0 6px 20px rgba(2,6,23,0.6) inset;
+        }
+
+        h2 {
+            color: var(--text);
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.05rem;
+            margin-top: 1rem;
+            margin-bottom: 0.6rem;
+            font-weight: 700;
+        }
+
+    p { margin-bottom: 0.95rem; color: var(--muted); font-size: 1rem; }
+
+        ul { margin-bottom: 1rem; padding-left: 1.25rem; }
+        li { margin-bottom: 0.45rem; }
+
+        /* Feature grid / cards: warm accent and subtle borders */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.03);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.04);
+            color: var(--muted-weak);
+        }
+
+        .card h4 { color: var(--accent); margin-bottom: 0.4rem; font-weight: 700; }
+        .card-icon { font-size: 1.2rem; margin-bottom: 0.5rem; display: block; }
+
+        /* Code */
+        code {
+            background: rgba(255,255,255,0.03);
+            padding: 0.16rem 0.32rem;
+            border-radius: 6px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Courier New', monospace;
+            color: #c78b59;
+            font-size: 0.95em;
+        }
+
+        .hl-word { color: var(--accent); font-weight: 700; }
+
+        /* Links: warm, understated */
+        a { color: var(--accent); text-decoration: none; border-bottom: 1px dashed rgba(199,139,89,0.16); padding-bottom: 1px; }
+        a:hover { color: #e3b894; border-bottom-color: rgba(227,184,148,0.28); }
+
+        a:focus {
+            outline: 3px solid rgba(199,139,89,0.14);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        /* Callouts */
+    .callout { padding: 14px; margin: 10px 0; border-radius: 8px; color: var(--text); background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.03); }
+    .callout-success { border-left: 4px solid rgba(155,95,50,0.22); }
+    .callout-warning { border-left: 4px solid rgba(200,120,60,0.18); }
+
+        /* Lists and tag styles for readability */
+        ul.clean-list { list-style: none; padding: 0; margin: 0; }
+        ul.clean-list li {
+            background: rgba(255,255,255,0.035);
+            padding: 10px;
+            margin-bottom: 8px;
+            border-left: 3px solid rgba(199,139,89,0.06);
+            border-radius: 6px;
+            color: var(--text);
+        }
+
+        /* Special styles for journal list variants */
+    .journal-item { background: rgba(255,255,255,0.02); border-left-color: rgba(255,255,255,0.03); color: var(--text); }
+
+    .journal-item.highlight { background: linear-gradient(90deg, rgba(199,139,89,0.08), rgba(255,255,255,0.03)); border-left-color: rgba(199,139,89,0.22); }
+
+        /* Tag/pill styles */
+        .tag-pill {
+            display: inline-block;
+            background: rgba(199,139,89,0.06);
+            color: var(--text);
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            margin-right: 8px;
+            border: 1px solid rgba(199,139,89,0.08);
+        }
+
+    footer { margin-top: 2rem; padding-top: 1.25rem; font-size: 0.95rem; color: var(--muted); }
+
+        /* Hamburger Menu Button (hidden on desktop) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 101;
+            position: absolute;
+            right: 1rem;
+            top: 0.75rem;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+
+        /* Responsive: Mobile & Tablet */
+        @media (max-width: 880px) {
+            body { 
+                font-size: 16px;
+                display: block; /* Change from flex to block for mobile */
+            }
+            
+            main { 
+                padding: 1rem; 
+                margin-left: 0;
+                margin-top: 0;
+                width: 100%;
+            }
+            
+            /* Show hamburger on mobile */
+            .hamburger { display: flex; }
+            
+            /* Nav becomes collapsible with hamburger */
+            nav { 
+                position: sticky; 
+                top: 0; 
+                z-index: 100;
+                width: 100%; 
+                height: auto; 
+                padding: 0.75rem 1rem; 
+                display: block; 
+                background: rgba(13,15,18,0.98);
+                backdrop-filter: blur(8px);
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.04);
+            }
+            
+            nav h1 { 
+                display: inline-block; 
+                margin-bottom: 0;
+                font-size: 0.95rem;
+                padding-right: 50px; /* space for hamburger */
+            }
+            
+            /* Nav menu hidden by default on mobile */
+            nav ul { 
+                display: none;
+                flex-direction: column;
+                gap: 0.4rem; 
+                margin-top: 1rem;
+                padding-bottom: 0.5rem;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+            
+            /* Show menu when active */
+            nav ul.active { 
+                display: flex;
+                max-height: 500px;
+            }
+            
+            nav li { white-space: normal; }
+            
+            /* Larger tap targets for mobile */
+            nav a { 
+                padding: 0.75rem 1rem; 
+                font-size: 0.95rem;
+                min-width: 44px; /* WCAG recommended minimum */
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                width: 100%;
+            }
+            
+            /* Sections & content */
+            section { padding: 1.5rem 1rem; margin-bottom: 1rem; }
+            
+            h2 { font-size: 1.35rem; margin-bottom: 0.75rem; }
+            h3 { font-size: 1.05rem; margin-top: 0.9rem; }
+            
+            p { font-size: 1rem; line-height: 1.65; }
+            
+            /* Cards */
+            .card { padding: 1rem; }
+            .feature-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+            
+            /* Lists */
+            ul.clean-list li { padding: 12px; font-size: 0.98rem; }
+            
+            /* Tags */
+            .tag-pill { padding: 8px 12px; font-size: 0.88rem; margin-bottom: 8px; }
+            
+            /* Callouts */
+            .callout { padding: 16px; }
+            
+            /* Code blocks */
+            code { font-size: 0.9rem; padding: 0.2rem 0.4rem; }
+            
+            /* Links: larger tap area */
+            a { 
+                padding: 0.2rem 0; 
+                display: inline-block;
+            }
+        }
+        
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            nav h1 { font-size: 0.9rem; }
+            nav a { font-size: 0.9rem; padding: 0.65rem 0.85rem; }
+            h2 { font-size: 1.25rem; }
+            section { padding: 1.25rem 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h1>Ghid Licență #1: Lit Review</h1>
+        <button class="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul>
+            <li><a href="#intro">1. Introducere</a></li>
+            <li><a href="#surse">2. Alegerea Surselor</a></li>
+            <li><a href="#cautare">3. Strategii de Căutare</a></li>
+            <li><a href="#zotero">4. Zotero</a></li>
+            <li><a href="#vizualizare">5. Science Mapping</a></li>
+            <li><a href="#sinteza">6. Sinteza și scrierea textului</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="intro">
+  <h2>1. Introducere — Ghid pas-cu-pas pentru secțiunea de lit review din licență</h2>
+
+    <p>Un <i class="hl-word">lit review</i> (pe scurt de la literature review și modul nițel mai scurt de a face referire la „trecerea în revistă a literaturii de specialitate”) pentru lucrarea de licență este un instrument practic: te ajută să vezi ce se știe, ce nu se știe și unde se încadrează întrebarea ta de cercetare. Scopul nu e să enumeri surse, ci să construiești o poveste clară despre subiectul de cercetare. Toată povestea asta întră, de obicei, în prima secțiune din lucrarea de licență, în <i class="hl-word">introducere</i>.</p>
+
+    <p>
+        Scopul pentru care facem asta la început e să vedem cam ce <b>nu</b> s-a mai scris: un așa zis <i>gap in the literature</i>. Pentru că stăm pe  <a href="https://en.wikipedia.org/wiki/Standing_on_the_shoulders_of_giants" target="_blank" rel="noopener noreferrer">umerii giganților</a>, și orice cercetare facem vine ca un răspuns la o tradiție de cercetare mai veche. Nu prea există domenii pe care să nu se fi scris nimic. Noi, când scriem un articol (sau o lucrare de licență, în cazul ăsta), intrăm practic într-o conversație cu un <i class="hl-word">state of the art</i>, adică starea curentă a cercetării cu privire la subiectul pe care îl vizăm. 
+
+    </p>
+
+    <p>
+        Un articol nou ar trebui să caute să adauge ceva nou și de valoare în această conversație cu ceilalți cercetători. La licență nu se așteaptă nimeni să reinventați apa caldă, dar ar fi bine să vă gândiți la un subiect care nu a mai fost cercetat, sau măcar să aveți o justificare pentru care modul în care <b>voi</b> îl cercetați e inovativ <i>(de ex. că replicați ceva făcut în altă țară în România pentru a putea compara; e ceva ce s-a mai cercetat, dar voi o faceți cu o metodologie nouă; sunt două subiecte care s-au mai cercetat separat, dar voi vreți să vedeți cum interacționează cele două etc.)</i>.
+    </p>
+
+    <div class="callout callout-success">
+    <strong>Rezultatele unui lit review bine făcut:</strong>
+    <ul>
+      <li>Întrebări de cercetare rafinate care sunt informate din literatura de specialitate;</li>
+      <li>Un set de articole și cărți relevante organizate eficient;</li>
+      <li>Un document cu informațiile extrase pe care puteți baza secțiunea „Literature Review” a lucrării.</li>
+    </ul>
+  </div>
+
+  <h3>Plan pas-cu-pas</h3>
+  <p>
+    Puteți să o faceți cum vreți voi, sincer. Asta e doar a cale foarte sistematizată care știu că merge. Voi puteți să faceți asta oricum, numai să iasă ok la final  </p>
+    <ol>
+        <li>
+            <strong>Clarificați întrebarea și obiectivul</strong><br>
+            Formulați 1 propoziţie clară care spune ce vreți să aflați şi de ce contează în contextul lucrării. 
+        </li>
+
+
+        <li>
+            <strong> Căutări preliminare</strong><br>
+            Faceți câteva căutări inițiale în Google Scholar, Semantic Scholar şi Scopus/Web of Science. Luați primele câteva articole ca să vedeți cam ce s-a mai studiat, cum s-a pus problema, care sunt genul de termeni, teorii, cuvinte pe care le folosesc cercetătorii în general în jurul temei pe care vreți să o studiați.
+        </li>
+
+        <li>
+            <strong> Căutare în profunzime</strong><br>
+            Acum că știți cam cum arată câmpul, trebuie să dați niște cercetări mai in-depth. Pentru mai multe informații despre căutare, mergeți la <a href="#cautare">secțiunea 3</a>. Odată ce le găsiți, salvați-le în Zotero (vedeți <a href="#zotero">secțiunea 4</a>).
+        </li>
+
+        <li>
+            <strong> Citire și notițe</strong><br>
+            Aici depinde de voi cum lucrați cel mai bine. Puteți doar să aveți un folder cu tot ce ați extras și să vă apucați să highlightuiți ce e relevant, în timp ce în paralel aveți poate un word în care puneți ideile principale citate ca după aia să puteți să le căutați direct acolo. În timp ce citiți, probabil veți avea idei noi, veți vedea că unele chestii s-au făcut, veți vrea să regândiți. Asta e ok, e încă pasul în care aveți foarte multă libertate.
+        </li>
+
+        <li>
+            <strong> Scrieți sinteza narativă</strong><br>
+            Din notițele făcute la pasul anterior, începeți să scrieți o sinteză narativă. Nu rezumați articol cu articol, ci încercați să grupați tematic. Puteți să vedeți un exemplu de sinteză în <a href="#sinteza">secțiunea 6</a>.
+        </li>
+
+    </ol>
+
+  <h3>Sfaturi utile, pe scurt</h3>
+  <ul>
+    <li><strong>Nu citiți totul de la cap la coadă.</strong> Scanează, prioritizează, apoi citește aprofundat.</li>
+    <li><strong>Fiți agresivi cu incluziunea/excluziunea.</strong> Dacă nu e perfect relevant, scoateți o referință din lucrare.</li>
+    <li><strong>Câte referințe trebuie să am?????</strong> Teoretic ar trebui să mergeți cu lit review-ul până ajungeți la saturație, adică să continuați să includeți chestii relevante până când nu mai găsiți informații noi.</li>
+  </ul>
+
+  <p>Un lit review clarifică practic pașii următori: clarifică ce metodă poți folosi, ce goluri există și cum formulezi o întrebare solidă. Urmează pașii de mai sus și procesul devine mult mai simplu.</p>
+</section>
+
+
+        <section id="surse">
+            <h2>2. Cum și de unde alegem sursele</h2>
+            <p>Nu toate sursele sunt egale. Validitatea argumentului depinde de credibilitatea surselor citate.</p>
+            
+            <h3>Edituri Academice de Încredere</h3>
+            <p>Prioritizează publicațiile de la edituri consacrate, recunoscute internațional pentru standarde riguroase de peer-review:</p>
+                <ul class="clean-list">
+                    <li class="journal-item highlight"><strong>Elsevier</strong> — Printre cele mai mari edituri; publică jurnale precum <em>The Lancet</em>, <em>Cell</em>, <em>Social Science Research</em></li>
+                    <li class="journal-item"><strong>Springer Nature</strong> — Include <em>Nature</em>, <em>Scientific American</em>, și mii de jurnale pe domenii diverse</li>
+                    <li class="journal-item"><strong>Wiley-Blackwell</strong> — Editează publicații de referință în științe sociale, medicină și inginerie</li>
+                    <li class="journal-item"><strong>Taylor & Francis / Routledge</strong> — Foarte puternic în științe sociale și umaniste</li>
+                    <li class="journal-item"><strong>SAGE Publications</strong> — Focus pe sociologie, psihologie, științe politice și metodologie</li>
+                    <li class="journal-item"><strong>Oxford University Press (OUP)</strong> — Editură universitară de prestigiu cu standarde academice stricte</li>
+                    <li class="journal-item"><strong>Cambridge University Press (CUP)</strong> — Similar cu OUP, excelent pentru științe sociale și umaniste</li>
+                </ul>
+
+            <h3>Ce înseamnă Q1, Q2, Q3, Q4?</h3>
+            <p>Jurnalele sunt clasificate în <strong>quartile</strong> (Q1 - Q4) pe baza factorului de impact, în cadrul domeniului lor:</p>
+            <ul>
+                <li><strong>Q1 (Quartila 1)</strong> — Top 25% din jurnalele unui domeniu. Cele mai prestigioase și citate publicații.</li>
+                <li><strong>Q2</strong> — Între 25% și 50%. Jurnale solide, respectate.</li>
+                <li><strong>Q3</strong> — Între 50% și 75%. Acceptabile, dar mai puțin vizibile.</li>
+                <li><strong>Q4</strong> — Ultimele 25%. Impact scăzut; ce e pe aici ar trebui folosit cu precauție.</li>
+            </ul>
+            <p><em>Verifică cuartila pe <a href="https://www.scimagojr.com/" target="_blank" rel="noopener noreferrer">Scimago Journal Rank (SJR)</a></em></p>
+
+            <h3>Ce înseamnă „ISI Indexed" (Web of Science)?</h3>
+            <p><strong>ISI</strong> (acum <strong>Web of Science</strong>) este una dintre cele mai prestigioase baze de date bibliometrice. Un jurnal „ISI indexed" înseamnă că:</p>
+            <ul>
+                <li>A trecut printr-un proces riguros de evaluare pentru a fi inclus</li>
+                <li>Are un <strong>factor de impact</strong> calculat anual (Journal Impact Factor – JIF)</li>
+                <li>Este recunoscut internațional ca publicație de calitate</li>
+                <li>Articolele din el sunt considerate „cotate" de majoritatea universităților</li>
+            </ul>
+            <div class="callout callout-success">
+                <strong>Sfat:</strong> Când căutați surse, încercați să le luați în principal din jurnale bine cotate.
+            </div>
+
+            
+        </section>
+
+        <section id="cautare">
+            <h2>3. Strategii de Căutare Avansată</h2>
+            <p>Interogarea bazelor de date necesită o sintaxă precisă, nu limbaj natural.</p>
+            
+            <h3>Operatori Booleeni</h3>
+            <ul>
+                <li><strong>AND</strong>: Îngustează (ex: <code>inequality AND health</code>)</li>
+                <li><strong>OR</strong>: Lărgește pentru sinonime (ex: <code>(youth OR adolescents)</code>)</li>
+                <li><strong>* (Trunchiere)</strong>: <code>sociolog*</code> găsește sociology, sociologist, sociological.</li>
+            </ul>
+
+            <h3>Metoda „Bulgărelui de Zăpadă”</h3>
+            <p><strong>Backward Chaining:</strong> Verifică bibliografia unui articol seminal.<br>
+            <strong>Forward Chaining:</strong> Vezi cine a citat articolul <em>după</em> publicare .</p>
+        </section>
+
+        <section id="zotero">
+            <h2>4. Ecosistemul Zotero</h2>
+            <p>
+                Sunt mai multe variante pentru managementul referințelor. Cel mai bun, după mine, e <a href="https://www.zotero.org/" target="_blank" rel="noopener noreferrer">Zotero</a>, cu care e foarte foarte posibil să fiți familiari deja.
+            </p>
+            
+            <h3>Organizare prin Etichete (Tags)</h3>
+            <p>Puteți să vă folosiți de foldere și taguri pentru a le ține mai bine în vedere.</p>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <span class="tag-pill">#inegalitate</span>
+                    <span class="tag-pill">#metoda_cantitativă</span>
+                    <span class="tag-pill">#relevant_intro</span>
+                </div>
+
+            <h3>Integrarea cu Word / Google Docs</h3>
+            <p>
+                Motivul pentru care chiar vrem să folosim Zotero e pentru că permite inserția directă de referințe în interiorul manuscrisului. În plus, îți generează automat o bibliografie la final.
+            </p>
+        </section>
+
+        <section id="vizualizare">
+            <h2>5. Vizualizarea Câmpului (Science Mapping)</h2>
+            <p>Instrumente pentru a descoperi conexiuni invizibile la o simplă lectură.</p>
+            <div class="feature-grid">
+                <div class="card">
+                    <h4><a href="https://www.litmaps.com/" target="_blank" rel="noopener noreferrer">Litmaps</a> / <a href="https://www.researchrabbit.ai/" target="_blank" rel="noopener noreferrer">Research Rabbit</a> / <a href="https://www.connectedpapers.com/" target="_blank" rel="noopener noreferrer">Connected Papers</a> <h4>
+                    <p>Vă puteți încărca colecția de lucrări pe care le aveți deja și veți putea găsi alte lucrări.</p>
+                </div>
+                
+                <div class="card">
+                    <h4><a href="https://elicit.com" target="_blank" rel="noopener noreferrer">Elicit</a> / <a href="https://consensus.app" target="_blank" rel="noopener noreferrer">Consensus</a><h4>
+                    <p>Asistenți AI pentru cercetare.</p>
+                </div>
+                
+            </div>
+        </section>
+
+        <section id="sinteza">
+            <h2>6. Sinteza Narativă</h2>
+            <p>Trecerea de la citit la scris. Ideea aici e să încercați să spuneți o poveste. Lit review-ul e partea din introducere în care practic justificați ceea ce faceți prin contextualizare. Nu puteți doar să citiți trei articole și o carte și să le rezumați una după alta, trebuie să construiți o narațiune coerentă.</p>
+
+            <p>
+                Puteți să o faceți cronologic, tematic, teoretic sau o combinație între ele. Scrisul academic e un skill care se învață în timp, și cel mai ușor o faceți mimetic (încercați să citiți articole bune și să vedeți cum sunt structurate, cum se construiesc ideile cum arată propozițiile). 
+            </p>
+
+            
+
+                <h3>Cum citezi în sinteză</h3>
+                <p>
+                    În sinteza finală vrei ca citările să susţină ideile tale, nu să întrerupă fluxul. Câteva reguli simple:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Încercați să puneți ideile și nu autorii pe primul loc în narațiunile voastre.</strong><br>
+                        Ex.: „<em>Smith (2020) arată că…</em>” (autorul e pe primul loc) vs. „…au o influenţă limitată (Smith, 2020; Ionescu & Popa, 2019).”(ideea e pe primul loc).
+                    </li>
+                    <li>
+                        <strong>Grupați studiile care susţin aceeaşi idee.</strong><br>
+                        În loc să repetați ideea pentru fiecare articol, scrie ideea o singură dată şi pune 2–4 citări relevante la final.
+                    </li>
+                    <li>
+                        <strong>Verifică consistenţa stilului de citare.</strong><br>
+                        De aia e bun Zotero, pentru că se ocupă automat de treaba asta.
+                    </li>
+                </ul>
+
+
+
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Ghid de Cercetare Sociologică. Bazat pe cele mai bune practici academice.</p>
+        </footer>
+    </main>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navUl = document.querySelector('nav ul');
+        const navLinks = document.querySelectorAll('nav ul li a');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navUl.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navUl.classList.remove('active');
+            });
+        });
+
+        // Simple script to highlight active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLi = document.querySelectorAll('nav ul li a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLi.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
