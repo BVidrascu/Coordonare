@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghid de Cercetare</title>
+    <style>
+        :root {
+            --bg: #0d0f12;
+            --surface: #131416;
+            --text: #efe8db;
+            --muted: #d7cbb8;
+            --muted-weak: rgba(231,224,213,0.78);
+            --accent: #c78b59;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: "Libre Baskerville", Georgia, 'Times New Roman', serif;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .description {
+            font-size: 1.05rem;
+            color: var(--muted-weak);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.25rem 2.5rem;
+            background: linear-gradient(135deg, rgba(199,139,89,0.1), rgba(199,139,89,0.05));
+            color: var(--accent);
+            text-decoration: none;
+            border: 2px solid var(--accent);
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, rgba(199,139,89,0.2), rgba(199,139,89,0.1));
+            color: #e3b894;
+            border-color: #e3b894;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(199,139,89,0.15);
+        }
+
+        .cta-button:focus {
+            outline: 3px solid rgba(199,139,89,0.14);
+            outline-offset: 2px;
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--muted);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .description {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ghid de Cercetare</h1>
+        <p class="subtitle">Resurse academice pentru studenți</p>
+        
+        <p class="description">
+            Bine ați venit! Aici veți găsi ghiduri detaliate și bem-practice pentru realizarea unei excelente cercetări academice. Să începem cu o introducere în literatura de specialitate.
+        </p>
+
+        <a href="Lit review.html" class="cta-button">Accesați Ghidul Literature Review →</a>
+
+        <footer>
+            <p>&copy; 2025 Ghid de Cercetare Sociologică. Bazat pe cele mai bune practici academice.</p>
+        </footer>
+    </div>
+</body>
+</html>
